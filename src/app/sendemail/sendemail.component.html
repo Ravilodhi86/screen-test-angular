@@ -1,0 +1,29 @@
+
+<div class="box">
+    <h2>Send New Mail</h2>
+    <div class="form-box">
+   
+      <form [formGroup]="sendEmailFormGroup" (ngSubmit)="onSubmit()">
+      <mat-form-field class="example-full-width" >
+        <mat-label>To:</mat-label>
+        <input matInput  formControlName="email" >
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Subject:</mat-label>
+        <input matInput formControlName="subject">
+      </mat-form-field>
+       
+      <mat-form-field  class="example-full-width">
+        <mat-label>Message</mat-label>
+        <input matInput formControlName="message">
+        <!-- <textarea matInput ></textarea> -->
+      </mat-form-field>
+      <mat-spinner *ngIf='loading'></mat-spinner>
+      <div class="example-button-row">
+        <button mat-button  style="float: left; background:#CCC ;" [disabled]="!sendEmailFormGroup.valid"><b>SEND</b> <i class="material-icons" >send</i></button>
+        <button mat-button color="primary" style="float: right; background: royalblue; color: seashell;" (click)="resetFrom()" ><b>RESET</b> <i class="material-icons">delete</i></button>
+        <div style="clear: both;"></div>
+        </div>
+    </form>
+    </div>
+      </div>
